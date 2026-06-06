@@ -545,7 +545,7 @@ jobs:
             exit 1
           fi
           if patch -p1 --forward --ignore-whitespace < "$PATCH_FILE"; then
-            echo "::notice::Droidspaces patch 应用成功"
+            echo "Droidspaces patch 应用成功"
           else
             echo "::error::Droidspaces patch 应用失败"
             exit 1
@@ -763,7 +763,7 @@ jobs:
           rm -rf ./main.bin
           
       - name: 📤 Upload AnyKernel3 (上传 Anykernel3)
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
          name: AK3_${{ env.KSUVER }}_${{ env.DEVICES_NAME }}_ReSukiSU
          path: ./AnyKernel3/*
@@ -856,7 +856,7 @@ jobs:
           ls -lR "$ARTIFACT_NAME"
 
       - name: 📤 Upload Re-Kernel module (上传 Re-Kernel 模块)
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: Re-Kernel-v${{ steps.download-rekernel.outputs.version-number }}
           path: Re-Kernel-v${{ steps.download-rekernel.outputs.version-number }}
